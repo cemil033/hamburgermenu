@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #hmbr{            
+            width: 100%;
+            height: 40%;  
+        }
+        #btn{            
+            background-color: aqua;
+            top: 0;            
+            width: 100%;
+            line-height: 45px;
+            padding: 5px 15px 0px 15px;
+            color: black;
+            border: 0;
+            font-size: 1.4em;
+            font-weight: bold;            
+            }
+        #item{
+            margin-left: 20px;
+            width: 100px;
+            height: 40px;            
+        }        
+        #menu{
+            background-color: aqua;
+                        
+        }
+    </style>
+</head>
+<body>
+    <div id="hmbr"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script >
+        $(()=>{
+            const hmb=$('#hmbr');           
+            
+            if($('body').width()<=390){
+                hmb.append('<div id="dv"></div>').css("width","100%").css("backround-color","aqua")                
+                $('#dv').append('<button id="btn">=</button>')
+                hmb.append('<div id="menu"></div>')
+                $('#menu').css('margin-top',"50px")
+                $('#menu').append('<h2 id="item">Home</h2>')
+                $('#menu').append('<h2 id="item">Contact</h2>')
+                $('#menu').append('<h2 id="item">About</h2>')
+                $('#menu').append('<h2 id="item">Services</h2>')
+                $('#menu').hide()
+                $('button').click(()=>{
+                    $("#menu").slideToggle("slow", function() {
+                        if($('#btn').text()=='X'){
+                            $('#btn').text('=')
+                        }
+                        else{
+                            $('#btn').text('X') 
+                        }                        
+                    })
+                })
+            }
+            else{
+                hmb.append('<div id="dv2"></div>')
+                $("#dv2").css('display','flex')
+                $("#dv2").css('background-color','aqua')
+                $("#dv2").css('padding-left','30%')
+                
+                $("#dv2").append('<h2 id="item">Home</h2>')
+                $("#dv2").append('<h2 id="item">Contact</h2>')
+                $("#dv2").append('<h2 id="item">About</h2>')
+                $("#dv2").append('<h2 id="item">Services</h2>')
+            } 
+        })
+    </script>
+</body>
+</html>
